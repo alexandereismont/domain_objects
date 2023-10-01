@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class DomainobjectsApplication
+class DomainObjectsApplication
 
 fun main(args: Array<String>) {
-	runApplication<DomainobjectsApplication>(*args)
+	runApplication<DomainObjectsApplication>(*args)
 }

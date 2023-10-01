@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5634/db?useSSL=false&serverTimezone=UTC
+    username: user
+    password: user
+    driverClassName: org.postgresql.Driver
+  sql:
+    init:
+      schema-locations: classpath:/db/init.sql
+      mode: always
