@@ -35,7 +35,7 @@ data class Inventory(
     }
 
     fun decreaseQuantity() {
-        this.quantity = this.quantity!! + 1
+        this.quantity = this.quantity!! - 1
         this.updatedAt = LocalDate.now()
     }
 
