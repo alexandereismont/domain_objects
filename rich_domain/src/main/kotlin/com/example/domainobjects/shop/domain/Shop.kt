@@ -47,6 +47,9 @@ data class Shop(
                 throw Exception("quantity can't go below 0")
             } else {
                 existingInventory.decreaseQuantity()
+                if(existingInventory.isQuantityEmpty()) {
+                   inventories.remove(existingInventory)
+                }
                 existingInventory
             }
         }
