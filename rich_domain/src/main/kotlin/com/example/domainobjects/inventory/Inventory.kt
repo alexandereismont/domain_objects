@@ -1,7 +1,7 @@
 package com.example.domainobjects.inventory
 
 import com.example.domainobjects.product.Product
-import com.example.domainobjects.shop.Shop
+import com.example.domainobjects.shop.domain.Shop
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -26,11 +26,19 @@ data class Inventory(
     @Column(name = "created_at")
     val createAt: LocalDate = LocalDate.now(),
     @Column(name = "updated_at")
-    val updatedAt: LocalDate = LocalDate.now()
+    private var updatedAt: LocalDate = LocalDate.now()
 ) {
 
-    fun updateQuantity() {
+    fun increaseQuantity() {
         this.quantity = this.quantity!! + 1
+        this.updatedAt = LocalDate.now()
     }
+
+    fun decreaseQuantity() {
+        this.quantity = this.quantity!! + 1
+        this.updatedAt = LocalDate.now()
+    }
+
+    fun isQuantityEmpty() = quantity == 0
 
 }

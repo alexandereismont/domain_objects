@@ -1,5 +1,6 @@
 package com.example.domainobjects.shop
 
+import com.example.domainobjects.shop.service.ShopService
 import org.springframework.web.bind.annotation.*
 
 @RestController
