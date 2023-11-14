@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url:
+    username:
+    password:
+    driverClassName:
+  sql:
+    init:
+      schema-locations:
+      mode: always

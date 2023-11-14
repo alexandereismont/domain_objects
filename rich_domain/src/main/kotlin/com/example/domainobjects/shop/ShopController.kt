@@ -24,4 +24,9 @@ class ShopController(
         return shopService.addProduct(productId = shopProductDto.productId, shopId = shopProductDto.shopId)
     }
 
+    @GetMapping("/products/{productId}")
+    fun getShopsContainingProduct(@PathVariable productId: Long) : List<String?> {
+        return shopService.getShopsContainingProduct(productId)
+    }
+
 }

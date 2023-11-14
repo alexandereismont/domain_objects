@@ -50,4 +50,17 @@ class ShopService(
 
         return inventoryService.save(inventory).id
     }
+
+    fun getShopsContainingProduct(productId: Long): List<String?> {
+        return shopRepository.findAll()
+            .filter { it.inventories.firstOrNull { inventory -> inventory.product?.id == productId } != null }
+            .map { it.name }.toList()
+    }
+
+    fun getShopsContainingProductWithSql(productId: Long): List<String?> {
+        return shopRepository.findAllByInventoriesProductId(productId).map { it.name }
+    /*   return shopRepository.findAll()
+            .filter { it.inventories.firstOrNull { inventory -> inventory.product?.id == productId } != null }
+            .map { it.name }.toList()*/
+    }
 }

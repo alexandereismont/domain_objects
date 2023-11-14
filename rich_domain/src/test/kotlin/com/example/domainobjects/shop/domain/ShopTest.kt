@@ -1,9 +1,10 @@
 package com.example.domainobjects.shop.domain
 
 import com.example.domainobjects.product.Product
+import org.assertj.core.api.Assertions.*
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
 
 class ShopTest {
 
@@ -29,7 +30,7 @@ class ShopTest {
 
         shop.removeProduct(productA)
 
-        assertEquals(1, shop.inventories.size,)
-        assertEquals("TestProductB", shop.inventories[0].product!!.name)
+        assertThat(shop.inventories).hasSize(1)
+        assertThat(shop.inventories[0].product!!.name).isEqualTo("TestProductB")
     }
 }
