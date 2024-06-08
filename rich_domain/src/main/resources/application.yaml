@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5634/db?useSSL=false&serverTimezone=UTC
+    url: jdbc:postgresql://localhost:5632/db?useSSL=false&serverTimezone=UTC
     username: user
     password: user
     driverClassName: org.postgresql.Driver

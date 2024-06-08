@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/shops")
 class ShopController(
-    val shopService: ShopService
+    val shopService: ShopService,
+    val inventoryService: InventoryService
 ) {
 
     @GetMapping("/{id}")
@@ -16,7 +17,7 @@ class ShopController(
 
     @PostMapping
     fun saveShop(@RequestBody shopDto: ShopDto): String {
-        return shopService.saveShop(shopDto)
+        return shopService.createShop(shopDto)
     }
 
     @PostMapping("inventory")

@@ -15,7 +15,7 @@ class ShopService(
     private val inventoryService: InventoryService
 ) {
 
-    fun saveShop(shopDto: ShopDto) : String {
+    fun createShop(shopDto: ShopDto) : String {
         val shop = Shop(
             name = shopDto.name,
             location = shopDto.location
@@ -23,32 +23,6 @@ class ShopService(
 
         shopRepository.save(shop)
         return shopDto.name
-    }
-
-    fun addProduct(productId: Long, shopId: Long): Long? {
-        val product = productRepository.findById(productId).getOrNull()
-        val shop = shopRepository.findById(shopId).getOrNull()
-
-        if(product == null || shop == null) {
-            throw Exception("Missing product/shop")
-        }
-
-        val inventory = shop.addProduct(product)
-
-        return inventoryService.save(inventory).id
-    }
-
-    fun removeProduct(productId: Long, shopId: Long): Long? {
-        val product = productRepository.findById(productId).getOrNull()
-        val shop = shopRepository.findById(shopId).getOrNull()
-
-        if(product == null || shop == null) {
-            throw Exception("Missing product/shop")
-        }
-
-        val inventory = shop.removeProduct(product)
-
-        return inventoryService.save(inventory).id
     }
 
     fun getShopsContainingProduct(productId: Long): List<String?> {

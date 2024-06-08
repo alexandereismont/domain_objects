@@ -17,10 +17,10 @@ data class Inventory(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
     @ManyToOne
-    @JoinColumn(name = "shop_id")
+    @JoinColumn(name = "product_id")
     val product: Product? = null,
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "shop_id")
     val shop: Shop? = null,
     private var quantity: Int? = 0,
     @Column(name = "created_at")
